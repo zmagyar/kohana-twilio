@@ -38,7 +38,7 @@ class Twilio_SMS_Token
 
 		if ($number !== NULL)
 		{
-			$this->send($number);
+			$token->send($number);
 		}
 
 		return $token;

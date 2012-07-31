@@ -39,7 +39,7 @@ class Twilio_SMS
 	 */
 	public static function factory($number = NULL, $message = NULL)
 	{
-		return new SMS($recipient, $message);
+		return new SMS($number, $message);
 	}
 
 	/**
@@ -100,7 +100,7 @@ class Twilio_SMS
 
 		foreach ($this->_numbers as $number)
 		{
-			$twilio->send_sms($number, $message);
+			$twilio->send_sms($number, $this->_message);
 		}
 	}
 

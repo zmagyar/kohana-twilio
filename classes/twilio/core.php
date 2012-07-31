@@ -33,7 +33,7 @@ class Twilio_Core
 		// Load the Twilio API
 		if ( ! class_exists('Services_Twilio'))
 		{
-			Kohana::find_file('vendor', 'twilio/Services/Twilio');
+			require Kohana::find_file('vendor', 'twilio/Services/Twilio');
 		}
 
 		// Instantiate an instance of the Twilio API.
@@ -73,7 +73,7 @@ class Twilio_Core
 
 	public function send_sms($number, $message)
 	{
-		$client->account->sms_messages->create(Arr::get($this->_config, 'from'), $number, $message);
+		$this->_client->account->sms_messages->create(Arr::get($this->_config, 'from'), $number, $message);
 	}
 
 }
