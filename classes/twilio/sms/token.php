@@ -38,7 +38,7 @@ class Twilio_SMS_Token
 
 		if ($number !== NULL)
 		{
-			$token->send($number);
+			$this->send($number);
 		}
 
 		return $token;
@@ -54,7 +54,7 @@ class Twilio_SMS_Token
 	public function send($number, $instance = NULL)
 	{
 		// Get the verification code message.
-		$message = __(SMS_Token::$message, array(':code' => $this->_token->code));
+		$message = __(SMS_Token::$message, array(':code' => $this->_code));
 
 		// Send an SMS with the verification code.
 		SMS::factory($number, $message)->send($instance);
