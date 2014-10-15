@@ -73,7 +73,7 @@ class Twilio_Core
 
 	public function send_sms($number, $message)
 	{
-		$this->_client->account->sms_messages->create(Arr::get($this->_config, 'from'), $number, $message);
+		$this->_client->account->messages->sendMessage(Arr::get($this->_config, 'from'), $number, $message);
 	}
 
 }
